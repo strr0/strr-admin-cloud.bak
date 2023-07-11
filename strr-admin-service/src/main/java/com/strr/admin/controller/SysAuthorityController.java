@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/admin/sysAuthority")
@@ -50,11 +48,9 @@ public class SysAuthorityController extends SCrudController<SysAuthority, Intege
      * @return
      */
     @GetMapping("/userMenuTree")
-    public Result<Map<String, Object>> userMenuTree(@AuthenticationPrincipal Jwt jwt) {
-        Map<String, Object> map = new HashMap<>();
-//        map.put("user", sysUserDetails);
-//        map.put("menus", SysUtil.buildMenuTree(sysUserDetails.getAuthorityList()));
-        return Result.ok(map);
+    public Result<List<SysAuthorityVO>> userMenuTree(@AuthenticationPrincipal Jwt jwt) {
+        List<SysAuthority> authorities = sysAuthorityService.listByUserId(((Long) jwt.getClaims().get("user_id")).intValue());
+        return Result.ok(SysUtil.buildMenuTree(authorities));
     }
 
     /**

@@ -20,5 +20,3 @@ springdoc:
   packagesToScan: com.strr
   swagger-ui:
     enabled: true
-oauth2:
-  web: http://localhost:8080
