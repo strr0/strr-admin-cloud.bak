@@ -2,7 +2,6 @@ package com.strr.admin.service.impl;
 
 import com.strr.admin.mapper.SysUserMapper;
 import com.strr.admin.model.SysUser;
-import com.strr.admin.model.SysUserDetails;
 import com.strr.admin.service.SysUserService;
 import com.strr.admin.util.SysUtil;
 import com.strr.base.mapper.SCrudMapper;

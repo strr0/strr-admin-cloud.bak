@@ -1,7 +1,6 @@
 package com.strr.admin.mapper;
 
 import com.strr.admin.model.SysUser;
-import com.strr.admin.model.SysUserDetails;
 import com.strr.base.mapper.SCrudMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
