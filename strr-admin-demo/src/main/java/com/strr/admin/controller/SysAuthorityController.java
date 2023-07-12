@@ -2,6 +2,7 @@ package com.strr.admin.controller;
 
 import com.strr.admin.client.SysAuthorityFeignClient;
 import com.strr.admin.model.SysAuthority;
+import com.strr.admin.model.SysAuthorityVO;
 import com.strr.base.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class SysAuthorityController {
     private SysAuthorityFeignClient sysAuthorityFeignClient;
 
     @GetMapping("/menuTree")
-    public Result<List<SysAuthority>> menuTree(SysAuthority param) {
+    public Result<List<SysAuthorityVO>> menuTree(SysAuthority param) {
         return sysAuthorityFeignClient.menuTree(param);
     }
 }

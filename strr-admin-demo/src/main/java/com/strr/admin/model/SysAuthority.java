@@ -74,16 +74,6 @@ public class SysAuthority {
      */
     private Boolean status;
 
-    /**
-     * 父菜单名称
-     */
-    private String parentName;
-
-    /**
-     * 子菜单
-     */
-    private List<SysAuthority> children;
-
     public Integer getId() {
         return id;
     }
@@ -194,21 +184,5 @@ public class SysAuthority {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    public String getParentName() {
-        return parentName;
-    }
-
-    public void setParentName(String parentName) {
-        this.parentName = parentName;
-    }
-
-    public List<SysAuthority> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<SysAuthority> children) {
-        this.children = children;
     }
 }
