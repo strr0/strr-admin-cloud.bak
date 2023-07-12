@@ -11,5 +11,3 @@ mybatis:
   configuration:
     # 下划线驼峰映射
     map-underscore-to-camel-case: true
-oauth2:
-  web: http://localhost:8080
