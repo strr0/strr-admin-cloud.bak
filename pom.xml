@@ -16,6 +16,7 @@
         <module>strr-admin-eureka-service</module>
         <module>strr-admin-config-service</module>
         <module>strr-admin-auth-service</module>
+        <module>strr-admin-gateway-service</module>
     </modules>
 
     <properties>
