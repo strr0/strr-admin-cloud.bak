@@ -1,6 +1,6 @@
 spring:
   application:
-    name: demo
+    name: feignservice
   profiles:
     active: default
   config:

@@ -1,7 +1,6 @@
 package com.strr.admin.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class SysAuthority {
     /**

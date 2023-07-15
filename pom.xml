@@ -17,6 +17,7 @@
         <module>strr-admin-config-service</module>
         <module>strr-admin-auth-service</module>
         <module>strr-admin-gateway-service</module>
+        <module>strr-admin-feign-service</module>
     </modules>
 
     <properties>
