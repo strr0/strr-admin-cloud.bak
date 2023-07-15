@@ -9,6 +9,24 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      default-filters:
+        - TokenRelay
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway-client:
+            provider: spring
+            client-id: STRR_CLIENT
+            client-secret: STRR_SECRET
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: authorization_code
+            redirect-uri: http://127.0.0.1:8000/login/oauth2/code/gateway-client
+            scope: openid, web
+            client-name: Spring
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000
 eureka:
   instance:
     prefer-ip-address: true
