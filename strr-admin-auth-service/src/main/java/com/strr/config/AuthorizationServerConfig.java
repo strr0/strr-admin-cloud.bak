@@ -13,7 +13,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -38,7 +37,6 @@ import java.util.UUID;
 @Configuration
 public class AuthorizationServerConfig {
     private static final String CUSTOM_CONSENT_PAGE_URI = "/oauth2/consent";
-    private static final String REDIRECT_URI = "http://localhost:8080";
 
     /**
      * A Spring Security filter chain for the Protocol Endpoints.
@@ -68,7 +66,7 @@ public class AuthorizationServerConfig {
      * An instance of RegisteredClientRepository for managing clients.
      */
     @Bean
-    public RegisteredClientRepository registeredClientRepository(PasswordEncoder passwordEncoder) {
+    public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("STRR_CLIENT")
                 .clientSecret("$2a$10$OorZmxepTUuFZKzRVm1j2O6aVRDRaFq4nQ/kI5Gu4tFyPy5qqawP.")   // STRR_SECRET
@@ -79,7 +77,7 @@ public class AuthorizationServerConfig {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-                .redirectUri(REDIRECT_URI)
+                .redirectUri("http://127.0.0.1:8000/login/oauth2/code/gateway-client")
                 .scopes(ScopeWithDescription::addScope)
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();

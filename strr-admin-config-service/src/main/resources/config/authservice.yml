@@ -11,11 +11,3 @@ mybatis:
   configuration:
     # 下划线驼峰映射
     map-underscore-to-camel-case: true
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka

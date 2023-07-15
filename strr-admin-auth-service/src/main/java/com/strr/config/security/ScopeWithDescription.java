@@ -12,6 +12,10 @@ public class ScopeWithDescription {
     private static final Map<String, String> scopeDescriptions = new HashMap<>();
     static {
         scopeDescriptions.put(
+                OidcScopes.OPENID,
+                "This application will be able to read your openid information."
+        );
+        scopeDescriptions.put(
                 OidcScopes.PROFILE,
                 "This application will be able to read your profile information."
         );
