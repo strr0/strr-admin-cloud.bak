@@ -3,6 +3,11 @@
 <head>
     <title>Spring Security - OAuth 2.0 Login</title>
     <meta charset="utf-8" />
+    <script type="application/javascript">
+        setInterval(function () {
+            location.href = 'http://127.0.0.1:8080'
+        }, 1000)
+    </script>
 </head>
 <body>
 <div style="float: right" th:fragment="logout" sec:authorize="isAuthenticated()">
