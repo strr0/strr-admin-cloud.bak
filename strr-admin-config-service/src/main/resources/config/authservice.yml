@@ -11,3 +11,6 @@ mybatis:
   configuration:
     # 下划线驼峰映射
     map-underscore-to-camel-case: true
+# gateway
+url:
+  gateway: http://127.0.0.1:8000

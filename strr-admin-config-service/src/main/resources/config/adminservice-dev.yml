@@ -1,0 +1,4 @@
+springdoc:
+  packagesToScan: com.strr
+  swagger-ui:
+    enabled: true

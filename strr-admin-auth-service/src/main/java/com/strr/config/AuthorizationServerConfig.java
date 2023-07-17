@@ -7,6 +7,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import com.strr.admin.model.SysUserDetails;
 import com.strr.config.security.ScopeWithDescription;
 import com.strr.jose.Jwks;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -37,6 +38,8 @@ import java.util.UUID;
 @Configuration
 public class AuthorizationServerConfig {
     private static final String CUSTOM_CONSENT_PAGE_URI = "/oauth2/consent";
+    @Value("${url.gateway:http://127.0.0.1:8000}")
+    private String gatewayUrl;
 
     /**
      * A Spring Security filter chain for the Protocol Endpoints.
@@ -77,7 +80,7 @@ public class AuthorizationServerConfig {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-                .redirectUri("http://127.0.0.1:8000/login/oauth2/code/gateway-client")
+                .redirectUri(gatewayUrl + "/login/oauth2/code/gateway-client")
                 .scopes(ScopeWithDescription::addScope)
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();

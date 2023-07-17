@@ -21,7 +21,7 @@ spring:
             client-secret: STRR_SECRET
             client-authentication-method: client_secret_basic
             authorization-grant-type: authorization_code
-            redirect-uri: http://127.0.0.1:8000/login/oauth2/code/gateway-client
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope: openid, web
             client-name: Spring
         provider:
@@ -35,3 +35,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+# web
+url:
+  web: http://127.0.0.1:8080
