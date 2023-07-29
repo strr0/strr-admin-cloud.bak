@@ -26,7 +26,7 @@ spring:
             client-name: Spring
         provider:
           spring:
-            issuer-uri: http://localhost:9000
+            issuer-uri: http://127.0.0.1:9000
 eureka:
   instance:
     prefer-ip-address: true
