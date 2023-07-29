@@ -24,7 +24,7 @@ public class SysUtil {
                     children = new ArrayList<>();
                     parent.setChildren(children);
                 }
-                node.setParentName(parent.getName());
+                node.setParentTitle(parent.getTitle());
                 children.add(node);
             } else {
                 tree.add(node);
@@ -45,6 +45,7 @@ public class SysUtil {
         authorityVO.setUrl(authority.getUrl());
         authorityVO.setPath(authority.getPath());
         authorityVO.setName(authority.getName());
+        authorityVO.setTitle(authority.getTitle());
         authorityVO.setIcon(authority.getIcon());
         authorityVO.setParentId(authority.getParentId());
         authorityVO.setIsMenu(authority.getIsMenu());

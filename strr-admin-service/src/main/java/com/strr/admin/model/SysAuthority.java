@@ -30,6 +30,11 @@ public class SysAuthority {
     private String name;
 
     /**
+     * 标题
+     */
+    private String title;
+
+    /**
      * 图标
      */
     private String icon;
@@ -113,6 +118,14 @@ public class SysAuthority {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getIcon() {
