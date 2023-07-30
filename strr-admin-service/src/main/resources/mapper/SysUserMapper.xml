@@ -6,7 +6,7 @@
     </insert>
 
     <delete id="removeRel">
-        delete sys_rel_user_role where uid = #{uid} and rid = #{rid}
+        delete from sys_rel_user_role where uid = #{uid} and rid = #{rid}
     </delete>
 
     <select id="listRelByUid" resultType="java.lang.Integer">
