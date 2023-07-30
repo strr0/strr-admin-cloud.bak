@@ -35,6 +35,11 @@ public class SysAuthority {
     private String title;
 
     /**
+     * 按钮颜色
+     */
+    private String color;
+
+    /**
      * 图标
      */
     private String icon;
@@ -46,20 +51,9 @@ public class SysAuthority {
     private Integer parentId;
 
     /**
-     * 是否为菜单
-     */
-    @SColumn("is_menu")
-    private Boolean isMenu;
-
-    /**
      * 按钮类型
      */
     private String type;
-
-    /**
-     * 方法
-     */
-    private String func;
 
     /**
      * 创建人
@@ -128,6 +122,14 @@ public class SysAuthority {
         this.title = title;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public String getIcon() {
         return icon;
     }
@@ -144,28 +146,12 @@ public class SysAuthority {
         this.parentId = parentId;
     }
 
-    public Boolean getIsMenu() {
-        return isMenu;
-    }
-
-    public void setIsMenu(Boolean isMenu) {
-        this.isMenu = isMenu;
-    }
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getFunc() {
-        return func;
-    }
-
-    public void setFunc(String func) {
-        this.func = func;
     }
 
     public Integer getCreator() {

@@ -46,11 +46,10 @@ public class SysUtil {
         authorityVO.setPath(authority.getPath());
         authorityVO.setName(authority.getName());
         authorityVO.setTitle(authority.getTitle());
+        authorityVO.setColor(authority.getColor());
         authorityVO.setIcon(authority.getIcon());
         authorityVO.setParentId(authority.getParentId());
-        authorityVO.setIsMenu(authority.getIsMenu());
         authorityVO.setType(authority.getType());
-        authorityVO.setFunc(authority.getFunc());
         return authorityVO;
     }
 
