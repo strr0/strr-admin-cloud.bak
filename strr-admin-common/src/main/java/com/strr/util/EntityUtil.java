@@ -26,10 +26,26 @@ public class EntityUtil {
      * @return
      */
     public static String getColumn(Field field) {
-        if (field.isAnnotationPresent(SColumn.class)) {
-            return field.getAnnotation(SColumn.class).value();
+        if (!field.isAnnotationPresent(SColumn.class)) {
+            return field.getName();
         }
-        return field.getName();
+        String value = field.getAnnotation(SColumn.class).value();
+        if ("".equals(value)) {
+            return field.getName();
+        }
+        return value;
+    }
+
+    /**
+     * 模糊查询
+     * @param field
+     * @return
+     */
+    public static boolean isFuzzy(Field field) {
+        if (!field.isAnnotationPresent(SColumn.class)) {
+            return false;
+        }
+        return field.getAnnotation(SColumn.class).fuzzy();
     }
 
     /**

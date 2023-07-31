@@ -20,9 +20,10 @@ public class SysRole {
     private String name;
 
     /**
-     * 备注
+     * 标题
      */
-    private String remark;
+    @SColumn(fuzzy = true)
+    private String title;
 
     /**
      * 排序
@@ -72,12 +73,12 @@ public class SysRole {
         this.name = name;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Byte getSeq() {

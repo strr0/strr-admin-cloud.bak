@@ -27,6 +27,7 @@ public class SysUser {
     /**
      * 昵称
      */
+    @SColumn(fuzzy = true)
     private String nickname;
 
     /**

@@ -32,6 +32,7 @@ public class SysAuthority {
     /**
      * 标题
      */
+    @SColumn(fuzzy = true)
     private String title;
 
     /**

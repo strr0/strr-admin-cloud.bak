@@ -138,7 +138,9 @@ public class CrudSqlSource {
             for (Field field : fields) {
                 String property = field.getName();
                 String column = EntityUtil.getColumn(field);
-                ifNodes.add(new IfSqlNode(new TextSqlNode(String.format(" and %s = #{%s} ", column, property)), String.format("%s != null && %s != ''", property, property)));
+                String condition = EntityUtil.isFuzzy(field) ? String.format(" and %s like \"%%\"#{%s}\"%%\"", column, property) :
+                        String.format(" and %s = #{%s} ", column, property);
+                ifNodes.add(new IfSqlNode(new TextSqlNode(condition), String.format("%s != null && %s != ''", property, property)));
             }
             this.crudSqlSource.applyWhere = new WhereSqlNode(this.crudSqlSource.configuration, new MixedSqlNode(ifNodes));
         }

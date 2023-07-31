@@ -8,5 +8,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SColumn {
-    String value();
+    String value() default "";
+    boolean fuzzy() default false;
 }
