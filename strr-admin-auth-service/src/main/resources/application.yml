@@ -2,7 +2,7 @@ spring:
   application:
     name: authservice
   profiles:
-    active: default
+    active: native
   config:
     import: optional:configserver:http://localhost:8888
 encrypt:

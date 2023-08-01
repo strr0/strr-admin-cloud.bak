@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/strr_admin?serverTimezone=UTC
+    url: jdbc:mysql://${ipaddr}:3306/strr_admin?serverTimezone=UTC
     username: root
     password: '{cipher}b508a19f5f714b97916c70bd872da77208e5dca3da9830fefe9a1a50f683de9c'
 mybatis:
@@ -13,4 +13,5 @@ mybatis:
     map-underscore-to-camel-case: true
 # gateway
 url:
-  gateway: http://127.0.0.1:8000
+  gateway: http://${ipaddr}:8000
+ipaddr: 127.0.0.1

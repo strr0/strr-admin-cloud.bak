@@ -1,6 +1,8 @@
 server:
   port: 8000
 spring:
+  profiles:
+    active: native
   application:
     name: gatewayservice
   cloud:
@@ -26,7 +28,7 @@ spring:
             client-name: Spring
         provider:
           spring:
-            issuer-uri: http://127.0.0.1:9000
+            issuer-uri: http://${ipaddr}:9000
 eureka:
   instance:
     prefer-ip-address: true
@@ -37,4 +39,5 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 # web
 url:
-  web: http://127.0.0.1:8080
+  web: http://${ipaddr}:8080
+ipaddr: 127.0.0.1
