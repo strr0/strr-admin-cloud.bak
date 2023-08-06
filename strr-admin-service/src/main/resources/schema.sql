@@ -193,5 +193,26 @@ INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.cli
 INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'ipaddr', '127.0.0.1');
 INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'server.port', '9000');
 INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'url.gateway', 'http://${ipaddr}:8000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'server.port', '8000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.enabled', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.lower-case-service-id', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.default-filters', 'TokenRelay');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.provider', 'spring');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-id', 'STRR_CLIENT');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-secret', 'STRR_SECRET');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-authentication-method', 'client_secret_basic');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.authorization-grant-type', 'authorization_code');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.redirect-uri', '{baseUrl}/login/oauth2/code/{registrationId}');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.scope', 'openid, web');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-name', 'Spring');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.provider.spring.issuer-uri', 'http://${ipaddr}:9000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.instance.prefer-ip-address', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.register-with-eureka', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.fetch-registry', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.service-url.defaultZone', 'http://localhost:8761/eureka');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoint.gateway.enabled', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoints.web.exposure.include', 'gateway');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'url.web', 'http://${ipaddr}:8080');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'ipaddr', '127.0.0.1');
 
 SET FOREIGN_KEY_CHECKS = 1;
