@@ -2,7 +2,7 @@ spring:
   application:
     name: adminservice
   profiles:
-    active: native
+    active: default
   config:
     import: optional:configserver:http://localhost:8888
 encrypt:
