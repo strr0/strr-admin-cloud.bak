@@ -154,65 +154,70 @@ INSERT INTO `sys_user` VALUES (1, 'admin', '$2a$10$HLpbo23NoKfxTKuv5UAaB.KMCNvXo
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_properties`;
 CREATE TABLE `sys_properties`  (
-  `application` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '应用名称',
+  `application` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '应用',
   `profile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '环境',
   `label` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签',
   `key` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '键',
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '键名称',
   `value` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '值'
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_properties
 -- ----------------------------
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'server.port', '8001');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.driver-class-name', 'com.mysql.cj.jdbc.Driver');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.url', 'jdbc:mysql://${ipaddr}:3306/strr_admin?serverTimezone=UTC');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.username', 'root');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.password', '{cipher}b508a19f5f714b97916c70bd872da77208e5dca3da9830fefe9a1a50f683de9c');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.security.oauth2.resourceserver.jwt.jwk-set-uri', 'http://${ipaddr}:9000/oauth2/jwks');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'mybatis.mapper-locations', 'classpath:mapper/*.xml');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'mybatis.configuration.map-underscore-to-camel-case', 'true');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.instance.prefer-ip-address', 'true');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.register-with-eureka', 'true');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.fetch-registry', 'true');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.service-url.defaultZone', 'http://localhost:8761/eureka');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'ipaddr', '127.0.0.1');
-INSERT INTO `sys_properties` VALUES ('adminservice', 'dev', 'master', 'springdoc.packagesToScan', 'com.strr');
-INSERT INTO `sys_properties` VALUES ('adminservice', 'dev', 'master', 'springdoc.swagger-ui.enabled', 'true');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.driver-class-name', 'com.mysql.cj.jdbc.Driver');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.url', 'jdbc:mysql://${ipaddr}:3306/strr_admin?serverTimezone=UTC');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.username', 'root');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.password', '{cipher}b508a19f5f714b97916c70bd872da77208e5dca3da9830fefe9a1a50f683de9c');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'mybatis.mapper-locations', 'classpath:mapper/*.xml');
-INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'mybatis.configuration.map-underscore-to-camel-case', 'true');
-INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'server.port', '8081');
-INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.instance.prefer-ip-address', 'true');
-INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.register-with-eureka', 'true');
-INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.fetch-registry', 'true');
-INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.service-url.defaultZone', 'http://localhost:8761/eureka');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'ipaddr', '127.0.0.1');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'server.port', '9000');
-INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'url.gateway', 'http://${ipaddr}:8000');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'server.port', '8000');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.enabled', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.lower-case-service-id', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.default-filters', 'TokenRelay');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.provider', 'spring');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-id', 'STRR_CLIENT');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-secret', 'STRR_SECRET');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-authentication-method', 'client_secret_basic');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.authorization-grant-type', 'authorization_code');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.redirect-uri', '{baseUrl}/login/oauth2/code/{registrationId}');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.scope', 'openid, web');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-name', 'Spring');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.provider.spring.issuer-uri', 'http://${ipaddr}:9000');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.instance.prefer-ip-address', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.register-with-eureka', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.fetch-registry', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.service-url.defaultZone', 'http://localhost:8761/eureka');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoint.gateway.enabled', 'true');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoints.web.exposure.include', 'gateway');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'url.web', 'http://${ipaddr}:8080');
-INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'ipaddr', '127.0.0.1');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'server.port', '端口', '8001');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.driver-class-name', '数据库驱动', 'com.mysql.cj.jdbc.Driver');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.url', '数据库地址', 'jdbc:mysql://${ipaddr}:3306/strr_admin?serverTimezone=UTC');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.username', '数据库账号', 'root');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'spring.datasource.password', '数据库密码', '{cipher}b508a19f5f714b97916c70bd872da77208e5dca3da9830fefe9a1a50f683de9c');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.security.oauth2.resourceserver.jwt.jwk-set-uri', '授权中心地址', 'http://${ipaddr}:9000/oauth2/jwks');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'mybatis.mapper-locations', 'mybatis mapper地址', 'classpath:mapper/*.xml');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'mybatis.configuration.map-underscore-to-camel-case', '开启驼峰映射', 'true');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.instance.prefer-ip-address', '以ip地址注册', 'true');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.register-with-eureka', '注册到eureka', 'true');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.fetch-registry', '本地缓存', 'true');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'eureka.client.service-url.defaultZone', '注册中心地址', 'http://localhost:8761/eureka');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'ipaddr', 'ip地址', '127.0.0.1');
+INSERT INTO `sys_properties` VALUES ('adminservice', 'dev', 'master', 'springdoc.packagesToScan', 'swagger扫描路径', 'com.strr');
+INSERT INTO `sys_properties` VALUES ('adminservice', 'dev', 'master', 'springdoc.swagger-ui.enabled', '开启swagger', 'true');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.driver-class-name', '数据库驱动', 'com.mysql.cj.jdbc.Driver');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.url', '数据库地址', 'jdbc:mysql://${ipaddr}:3306/strr_admin?serverTimezone=UTC');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.username', '数据库账号', 'root');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'spring.datasource.password', '数据库密码', '{cipher}b508a19f5f714b97916c70bd872da77208e5dca3da9830fefe9a1a50f683de9c');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'mybatis.mapper-locations', 'mybatis mapper地址', 'classpath:mapper/*.xml');
+INSERT INTO `sys_properties` VALUES ('adminservice', NULL, 'master', 'mybatis.configuration.map-underscore-to-camel-case', '开启驼峰映射', 'true');
+INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'server.port', '端口', '8081');
+INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.instance.prefer-ip-address', '以ip地址注册', 'true');
+INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.register-with-eureka', '注册到eureka', 'true');
+INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.fetch-registry', '本地缓存', 'true');
+INSERT INTO `sys_properties` VALUES ('feignservice', NULL, 'master', 'eureka.client.service-url.defaultZone', '注册中心地址', 'http://localhost:8761/eureka');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'ipaddr', 'ip地址', '127.0.0.1');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'server.port', '端口', '9000');
+INSERT INTO `sys_properties` VALUES ('authservice', NULL, 'master', 'url.gateway', '网关地址', 'http://${ipaddr}:8000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'server.port', '端口', '8000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.enabled', '注册中心加载', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.discovery.locator.lower-case-service-id', '服务id小写', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.cloud.gateway.default-filters', '默认过滤器', 'TokenRelay');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.provider', 'oauth client配置', 'spring');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-id', 'client id', 'STRR_CLIENT');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-secret', 'client secret', 'STRR_SECRET');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-authentication-method', '授权method', 'client_secret_basic');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.authorization-grant-type', '授权方式', 'authorization_code');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.redirect-uri', '重定向地址', '{baseUrl}/login/oauth2/code/{registrationId}');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.scope', '域', 'openid, web');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.registration.gateway-client.client-name', 'client name', 'Spring');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'spring.security.oauth2.client.provider.spring.issuer-uri', '授权中心地址', 'http://${ipaddr}:9000');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.instance.prefer-ip-address', '以ip地址注册', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.register-with-eureka', '注册到eureka', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.fetch-registry', '本地缓存', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'eureka.client.service-url.defaultZone', '注册中心地址', 'http://localhost:8761/eureka');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoint.gateway.enabled', 'actuator', 'true');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'management.endpoints.web.exposure.include', 'actuator', 'gateway');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'url.web', '前端地址', 'http://${ipaddr}:8080');
+INSERT INTO `sys_properties` VALUES ('gatewayservice', NULL, 'master', 'ipaddr', 'ip地址', '127.0.0.1');
+INSERT INTO `sys_properties` VALUES ('eurekaservice', NULL, 'master', 'server.port', '端口', '8761');
+INSERT INTO `sys_properties` VALUES ('eurekaservice', NULL, 'master', 'eureka.client.register-with-eureka', '注册到eureka', 'false');
+INSERT INTO `sys_properties` VALUES ('eurekaservice', NULL, 'master', 'eureka.client.fetch-registry', '本地缓存', 'false');
+INSERT INTO `sys_properties` VALUES ('eurekaservice', NULL, 'master', 'eureka.server.wait-time-in-ms-when-sync-empty', '等待时间', '5');
 
 SET FOREIGN_KEY_CHECKS = 1;

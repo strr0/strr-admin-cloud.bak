@@ -2,12 +2,10 @@ package com.strr.admin.mapper;
 
 import com.strr.admin.model.SysRole;
 import com.strr.base.mapper.SCrudMapper;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
 public interface SysRoleMapper extends SCrudMapper<SysRole, Integer> {
     /**
      * 添加角色权限
