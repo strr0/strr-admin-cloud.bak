@@ -2,8 +2,11 @@ package com.strr.admin.util;
 
 import com.strr.admin.model.SysAuthority;
 import com.strr.admin.model.SysAuthorityVO;
+import com.strr.util.TreeUtil;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SysUtil {
     /**
@@ -12,45 +15,8 @@ public class SysUtil {
      * @return
      */
     public static List<SysAuthorityVO> buildMenuTree(List<SysAuthority> authorities) {
-        List<SysAuthorityVO> tree = new ArrayList<>();
-        Map<Integer, SysAuthorityVO> map = new HashMap<>();
-        authorities.forEach(authority -> {
-            SysAuthorityVO node = authorityToVO(authority);
-            SysAuthorityVO parent = map.get(authority.getParentId());
-            if (parent != null) {
-                // 子菜单
-                List<SysAuthorityVO> children = parent.getChildren();
-                if (children == null) {
-                    children = new ArrayList<>();
-                    parent.setChildren(children);
-                }
-                node.setParentTitle(parent.getTitle());
-                children.add(node);
-            } else {
-                tree.add(node);
-            }
-            map.put(node.getId(), node);
-        });
-        return tree;
-    }
-
-    /**
-     * 权限转VO
-     * @param authority
-     * @return
-     */
-    private static SysAuthorityVO authorityToVO(SysAuthority authority) {
-        SysAuthorityVO authorityVO = new SysAuthorityVO();
-        authorityVO.setId(authority.getId());
-        authorityVO.setUrl(authority.getUrl());
-        authorityVO.setPath(authority.getPath());
-        authorityVO.setName(authority.getName());
-        authorityVO.setTitle(authority.getTitle());
-        authorityVO.setColor(authority.getColor());
-        authorityVO.setIcon(authority.getIcon());
-        authorityVO.setParentId(authority.getParentId());
-        authorityVO.setType(authority.getType());
-        return authorityVO;
+        return TreeUtil.reverseBuildTree(authorities, SysAuthority::getId, SysAuthority::getParentId, SysAuthority::getSeq,
+                SysAuthorityVO::new, SysAuthorityVO::getChildren, SysAuthorityVO::setChildren);
     }
 
     /**

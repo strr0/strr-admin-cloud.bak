@@ -57,6 +57,11 @@ public class SysAuthority {
     private String type;
 
     /**
+     * 排序
+     */
+    private Integer seq;
+
+    /**
      * 创建人
      */
     private Integer creator;
@@ -153,6 +158,14 @@ public class SysAuthority {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Integer seq) {
+        this.seq = seq;
     }
 
     public Integer getCreator() {
