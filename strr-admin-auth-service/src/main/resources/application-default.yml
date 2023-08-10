@@ -1,8 +1,6 @@
 spring:
   application:
-    name: adminservice
-  profiles:
-    active: default
+    name: authservice
   config:
     import: optional:configserver:http://localhost:8888
 encrypt:

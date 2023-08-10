@@ -1,7 +1,5 @@
 spring:
   application:
-    name: gatewayservice
-  profiles:
-    active: default
+    name: feignservice
   config:
     import: optional:configserver:http://localhost:8888

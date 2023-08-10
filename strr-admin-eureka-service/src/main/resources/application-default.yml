@@ -1,7 +1,5 @@
 spring:
   application:
-    name: feignservice
-  profiles:
-    active: default
+    name: eurekaservice
   config:
     import: optional:configserver:http://localhost:8888
