@@ -28,34 +28,37 @@ CREATE TABLE `sys_authority`  (
   `icon` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图标',
   `parent_id` int NULL DEFAULT NULL COMMENT '父菜单',
   `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '按钮类型',
+  `seq` int NULL DEFAULT NULL COMMENT '排序',
+  `sys` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '默认',
   `creator` int NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `updator` int NULL DEFAULT NULL COMMENT '更新人',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `status` tinyint(1) NULL DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_authority
 -- ----------------------------
-INSERT INTO `sys_authority` VALUES (1, NULL, '/home', 'Home', '后台管理', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (2, '', '/admin', 'Admin', '系统管理', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `sys_authority` VALUES (3, '/admin/user', '/user', 'User', '用户管理', NULL, NULL, 2, 0, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `sys_authority` VALUES (4, '/admin/role', '/role', 'Role', '角色管理', NULL, NULL, 2, 0, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `sys_authority` VALUES (5, '/admin/authority', '/authority', 'Authority', '权限管理', NULL, NULL, 2, 0, NULL, NULL, NULL, NULL, 1);
-INSERT INTO `sys_authority` VALUES (6, NULL, NULL, 'show', '查看', 'primary', 'el-icon-view', 3, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (7, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 3, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (8, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 3, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (9, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 3, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (10, NULL, NULL, 'alloc', '权限', 'primary', 'el-icon-view', 4, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (11, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 4, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (12, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 4, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (13, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 4, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (14, NULL, NULL, 'show', '查看', 'primary', 'el-icon-view', 5, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (15, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 5, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (16, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 5, 3, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `sys_authority` VALUES (17, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 5, 3, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (1, NULL, '/home', 'Home', '后台管理', NULL, NULL, 0, 0, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (2, '', '/admin', 'Admin', '系统管理', NULL, NULL, 1, 0, NULL, 1, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `sys_authority` VALUES (3, '/admin/user', '/user', 'User', '用户管理', NULL, NULL, 2, 1, NULL, 1, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `sys_authority` VALUES (4, '/admin/role', '/role', 'Role', '角色管理', NULL, NULL, 2, 1, NULL, 1, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `sys_authority` VALUES (5, '/admin/authority', '/authority', 'Authority', '权限管理', NULL, NULL, 2, 1, NULL, 1, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `sys_authority` VALUES (6, NULL, NULL, 'show', '查看', 'primary', 'el-icon-view', 3, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (7, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 3, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (8, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 3, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (9, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 3, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (10, NULL, NULL, 'alloc', '权限', 'primary', 'el-icon-view', 4, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (11, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 4, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (12, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 4, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (13, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 4, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (14, NULL, NULL, 'show', '查看', 'primary', 'el-icon-view', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (15, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (16, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (17, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (18, '/admin/properties', '/properties', 'Properties', '配置管理', NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_rel_role_authority

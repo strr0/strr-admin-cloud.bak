@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.strr.admin.mapper.SysPropertiesMapper">
+    <select id="listApplication" resultType="com.strr.admin.model.SysProperties">
+        select t.application, group_concat(if(t.profile is not null, t.profile, 'default')) profile
+        from (select application, profile from sys_properties
+            <where>
+                <if test="application != null and application != ''">
+                    and application like "%"#{application}"%"
+                </if>
+            </where>
+            group by application, profile) t
+        group by t.application
+    </select>
+
+    <select id="listProperties" resultType="com.strr.admin.model.SysProperties">
+        select id, application, profile, label, `key`, name, `value` from sys_properties
+        where application = #{application}
+    </select>
+</mapper>
