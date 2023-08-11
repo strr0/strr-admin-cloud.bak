@@ -18,6 +18,46 @@ public class SysPropertiesServiceImpl implements SysPropertiesService {
     }
 
     /**
+     * 新增
+     */
+    @Override
+    public int save(SysProperties entity) {
+        return sysPropertiesMapper.save(entity);
+    }
+
+    /**
+     * 批量保存
+     */
+    @Override
+    public int batchSave(List<SysProperties> list) {
+        return sysPropertiesMapper.batchSave(list);
+    }
+
+    /**
+     * 修改
+     */
+    @Override
+    public int update(SysProperties entity) {
+        return sysPropertiesMapper.update(entity);
+    }
+
+    /**
+     * 删除
+     */
+    @Override
+    public int remove(Integer id) {
+        return sysPropertiesMapper.remove(id);
+    }
+
+    /**
+     * 批量删除
+     */
+    @Override
+    public int batchRemove(String application) {
+        return sysPropertiesMapper.batchRemove(application);
+    }
+
+    /**
      * 获取应用列表
      */
     @Override
