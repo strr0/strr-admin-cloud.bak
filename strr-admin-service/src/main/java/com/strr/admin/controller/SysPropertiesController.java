@@ -34,7 +34,7 @@ public class SysPropertiesController {
      * 批量新增
      */
     @PostMapping("/batchSave")
-    public Result<Integer> batchSave(List<SysProperties> list) {
+    public Result<Integer> batchSave(@RequestBody List<SysProperties> list) {
         int r = sysPropertiesService.batchSave(list);
         if (r > 0) {
             return Result.ok(r);
@@ -60,6 +60,18 @@ public class SysPropertiesController {
     @DeleteMapping("/remove")
     public Result<Void> remove(Integer id) {
         int r = sysPropertiesService.remove(id);
+        if (r > 0) {
+            return Result.ok();
+        }
+        return Result.error();
+    }
+
+    /**
+     * 批量删除
+     */
+    @DeleteMapping("/batchRemove")
+    public Result<Void> batchRemove(String application) {
+        int r = sysPropertiesService.batchRemove(application);
         if (r > 0) {
             return Result.ok();
         }
