@@ -59,6 +59,10 @@ INSERT INTO `sys_authority` VALUES (15, NULL, NULL, 'add', '添加', 'success', 
 INSERT INTO `sys_authority` VALUES (16, NULL, NULL, 'edit', '修改', 'warning', 'el-icon-edit', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_authority` VALUES (17, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 5, 2, NULL, 1, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_authority` VALUES (18, '/admin/properties', '/properties', 'Properties', '配置管理', NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (19, '/admin/properties/components/show', '/propertiesShow', 'show', '配置详情', 'primary', 'el-icon-view', 18, '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (20, NULL, NULL, 'add', '添加', 'success', 'el-icon-plus', 18, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (21, NULL, NULL, 'del', '删除', 'danger', 'el-icon-delete', 18, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_authority` VALUES (22, '/admin/server', '/server', 'Server', '服务管理', NULL, NULL, 1, '1', 1, '1', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_rel_role_authority
@@ -89,6 +93,11 @@ INSERT INTO `sys_rel_role_authority` VALUES (1, 14);
 INSERT INTO `sys_rel_role_authority` VALUES (1, 15);
 INSERT INTO `sys_rel_role_authority` VALUES (1, 16);
 INSERT INTO `sys_rel_role_authority` VALUES (1, 17);
+INSERT INTO `sys_rel_role_authority` VALUES (1, 18);
+INSERT INTO `sys_rel_role_authority` VALUES (1, 19);
+INSERT INTO `sys_rel_role_authority` VALUES (1, 20);
+INSERT INTO `sys_rel_role_authority` VALUES (1, 21);
+INSERT INTO `sys_rel_role_authority` VALUES (1, 22);
 
 -- ----------------------------
 -- Table structure for sys_rel_user_role
